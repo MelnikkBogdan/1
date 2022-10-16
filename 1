@@ -1,0 +1,58 @@
+/*Створити клас «смайлик», такий, що:
+а) його екземпляр містить розмір радіуса особи R і радіуса r очей.
+b) його конструктор без параметра створює екземпляр зі значенням 0, а
+конструктор з параметрами створює екземпляр з відповідним значенням
+R і r.
+c) його методи дозволяють отримувати і присвоювати значення R і r і
+обчислювати значення площі.
+d) функція print_sqrt () виводить на екран значення її R, r площі (без площі
+очей).*/
+
+#include <iostream>
+#include <string>
+#include <list>
+using namespace std;
+ 
+class Smiley {
+ 
+private: 
+ 
+    double R;
+    double r;
+    
+public:
+Smiley()
+{
+    this->r=0;
+    this->R=0;
+}
+Smiley(double r , double R)
+{
+    this->r=r;
+    this->R=R;
+}
+double getR() {
+            return R; 
+        }
+  double getr() {
+            return r; 
+        }
+  void setR(double R){
+            this-> R=R;
+  }
+ 
+  void setr(double r){
+            this->r=r;
+  }
+  void getSmiley(){
+      cin >> R >> r;}
+      void showSmiley (){
+              cout <<R*R*3.14<<" "<<r*r*3.14<<" "<<R*R*3.14-(2*(r*r*3.14));
+      }
+  };
+  int main () {
+      Smiley Smiley;
+      Smiley.getSmiley ();
+      Smiley.showSmiley ();
+  }
+  
