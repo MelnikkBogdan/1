@@ -1,0 +1,82 @@
+/*Варіант 7.
+Створити клас «конус», такий, що:
+а) його екземпляр містить розмір радіуса і висоти.
+b) його конструктор без параметра створює екземпляр зі значенням 0, а
+конструктор з параметрами створює екземпляр з відповідним значенням
+радіуса і висоти.
+c) його методи дозволяють отримувати і присвоювати значення радіуса,
+висоти та обчислювати значення об'єму.
+d) функція print_val () виводить на екран значення його радіуса, висоти і
+об’єму.
+e) дружня функція frd в якості параметрів отримує екземпляри двох
+конусів і повертає новий конус, висота якого дорівнює сумі висот цих
+двох конусів, а радіус – найбільший з двох.*/
+#include <iostream>
+#include <string>
+#include <list>
+
+
+using namespace std;
+
+class Conus
+{
+private:
+    double r;
+    double h;
+
+public:
+  Conus()
+    {
+        this->r = 0.0;
+        this->h = 0.0;
+
+    }
+    Conus(double r, double h)
+    {
+        this->r = r;
+        this->h= h;
+
+    }
+    double geth() {
+            return h; 
+        }
+  double getr() {
+            return r; 
+        }
+  void setR(double h){
+            this-> h=h;
+  }
+ 
+  void setr(double r){
+            this->r=r;
+  }
+  void getConus(){
+      cin >> h >> r;}
+      
+      void showConus (){
+              cout <<h<<" "<<r<<" "<<(h*2*(r*r*3.14))/3;
+      }
+      friend Conus frd(Conus, Conus);};
+     
+      Conus frd(Conus c1, Conus c2){
+    Conus tmp;
+    tmp.h= c1.h+c2.h;
+    if(c1.r>c2.r){
+    tmp.r = c1.r;}
+    else{tmp.r = c2.r;}
+    return tmp;
+}
+
+
+int main()
+{
+    Conus c1(2, 1), c2(3, 3), c3;
+    c3= frd(c1, c2);
+cout<<"\n c1=";
+c1.showConus();
+cout<<"\n c2=";
+c2.showConus();
+cout<<"\n c3=";
+c3.showConus();
+    
+}
